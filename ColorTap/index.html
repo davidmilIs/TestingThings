@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Some Color Some Music</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+  <div class="notes">
+ 	<div note-nb="81" class="note" id="a">
+ 	</div>
+ 	<div note-nb="83" class="note" id="s">
+ 	</div>
+ 	<div note-nb="68" class="note" id="d">
+ 	</div>
+ 	<div note-nb="70" class="note" id="f">
+ 	</div>
+ 	<div note-nb="71" class="note" id="g">
+ 	</div>
+ 	<div note-nb="72" class="note" id="h">
+ 	</div>
+ 	<div note-nb="74" class="note" id="j">
+ 	</div>
+ 	<div note-nb="75" class="note" id="k">
+ 	</div>
+ 	<div note-nb="76" class="note" id="l">
+ 	</div>
+  </div>
+
+  <audio note-nb="81" src="sounds/bass.wav"></audio>
+  <audio note-nb="83" src="sounds/bass.wav"></audio>
+  <audio note-nb="68" src="sounds/bass.wav"></audio>
+  <audio note-nb="70" src="sounds/bass.wav"></audio>
+  <audio note-nb="71" src="sounds/bass.wav"></audio>
+  <audio note-nb="72" src="sounds/bass.wav"></audio>
+  <audio note-nb="74" src="sounds/bass.wav"></audio>
+  <audio note-nb="75" src="sounds/bass.wav"></audio>
+  <audio note-nb="76" src="sounds/bass.wav"></audio>
+
+  <script>
+  	function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  	}
+
+
+  	function playSound(e){
+  		const audio = document.querySelector(`audio[note-nb="${e.keyCode}"]`);
+  		const key = document.querySelector(`.note[note-nb="${e.keyCode}"]`);
+
+  		if (!audio) {return;} //Wrong key
+ 		//console.log(audio);
+ 		key.classList.add('playing');
+ 		audio.currentTime=0; //Rewind.
+  		audio.play();
+  		console.log(key);
+  	};
+
+
+	  const keys = Array.from(document.querySelectorAll('.note'));
+	  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+	  window.addEventListener('keydown', playSound);
+  </script>
+
+  </body>
+</html>
