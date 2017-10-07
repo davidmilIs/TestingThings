@@ -1,0 +1,60 @@
+header{
+	text-align: center;
+}
+body{
+	text-align: center;
+}
+
+/* Board */
+
+.board-wrapper {
+  width: 100%;
+}
+
+.board-container {
+  align-self: center;
+  display: inline-block;
+  padding: 2px;
+  border: 4px solid  #000d1a;
+  background: #fff;
+  box-shadow: 2px 0px 2px #000;
+}
+
+.board {
+  background: #e7e7e7;
+}
+
+.board td {
+  min-width: 30px;
+  min-height: 30px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #000;
+  line-height: 28px;
+}
+
+.board p {
+ display: none; 
+}
+
+
+
+/* Info */
+
+.game-info-wrapper {
+  margin-bottom: 10px;
+}
+
+.game-info-wrapper > * {
+  display: inline-block;
+  width: 70px;
+  text-align: left;
+}
+
+.timer-wrapper {
+  margin-left: 25px;
+}
+
+.time {
+  float: right;
+}
